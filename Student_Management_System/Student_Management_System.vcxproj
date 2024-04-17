@@ -24,6 +24,7 @@
     <ProjectGuid>{1e193d92-e6cc-4e29-a6ae-5064215bcc33}</ProjectGuid>
     <RootNamespace>StudentManagementSystem</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Library_Management_System</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
