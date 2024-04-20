@@ -2,24 +2,18 @@
 #include<wx/wx.h>
 #include<wx/spinctrl.h>
 
-enum IDs {
-	BUTTON_ID = 2,
-	SLIDER_ID = 3,
-	TEXT_ID = 4
-};
-
-wxBEGIN_EVENT_TABLE(Mainframe, wxFrame)
-	EVT_BUTTON(BUTTON_ID, Mainframe::OnButtonClicked)
-	EVT_SLIDER(SLIDER_ID, Mainframe::OnSliderChanged)
-	EVT_TEXT(TEXT_ID, Mainframe::OnTextChanged)
-wxEND_EVENT_TABLE()
-
 Mainframe::Mainframe(const wxString& title) : wxFrame(nullptr, wxID_ANY, title) {
 	wxPanel* panel1 = new wxPanel(this);
-	wxButton* button2 = new wxButton(panel1, BUTTON_ID, "Button", wxPoint(300, 275), wxSize(200, 50));
-	wxSlider* slider1 = new wxSlider(panel1, SLIDER_ID, 0, 0, 100, wxPoint(300, 200), wxSize(200, -1));
-	wxTextCtrl* msg = new wxTextCtrl(panel1, TEXT_ID, "Editable", wxPoint(300, 375), wxSize(200, -1));
+	wxButton* button2 = new wxButton(panel1, wxID_ANY, "Button", wxPoint(300, 275), wxSize(200, 50));
+	wxSlider* slider1 = new wxSlider(panel1, wxID_ANY, 0, 0, 100, wxPoint(300, 200), wxSize(200, -1));
+	wxTextCtrl* msg = new wxTextCtrl(panel1, wxID_ANY, "Editable", wxPoint(300, 375), wxSize(200, -1));
 	CreateStatusBar();
+
+	button2->Bind(wxEVT_BUTTON, &Mainframe::OnButtonClicked, this);
+	slider1->Bind(wxEVT_SLIDER, &Mainframe::OnSliderChanged, this);
+	msg->Bind(wxEVT_TEXT, &Mainframe::OnTextChanged, this);
+
+	button2->Unbind(wxEVT_BUTTON, &Mainframe::OnButtonClicked, this);
 
 	/*
 	wxButton* button1 = new wxButton(panel1, wxID_ANY, "Button", wxPoint(150,50), wxSize(100,35));
