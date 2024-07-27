@@ -1,4 +1,3 @@
 Hello , My name is Ammar Khan.
-This is a simple Library Management System using the wxWidgets library in C++.
-This is for my second semester OOPs course.
-Started on 6th April 2024.
+This project includes various implementations of different systems in the wxWidgets library in C++.
+for e.g. buttons, radio buttons, control boxes, labels and much more
